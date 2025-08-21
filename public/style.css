@@ -1,151 +1,3 @@
-/* * {
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  width: 100%;
-    background: radial-gradient(circle, #3a0066, #1a002b);
-}
-
-.container {
-  background: radial-gradient(circle, #3a0066, #1a002b);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-.heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-.search {
-  padding: 10px;
-  height: 10px;
-  width: 50%;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  border-color: transparent;
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-}
-#searchIcon {
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  color: #bbc2ce;
-}
-#searchIcon:hover {
-  font-size: 28px;
-  font-weight: bolder;
-  color: aliceblue;
-  transition: scale(1.05);
-}
-.section1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 20px;
-  margin: 10px;
-  gap: 10px;
-}
-.img {
-  height: 150px;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 20px;
-  border: none;
-  gap: 20px;
-}
-#img1 {
-  height: fit-content;
-  border-radius: 20px;
-}
-#popularMovies {
-  font-size: larger;
-  color: white;
-  padding-left: 20px; 
-  font-size: 30px;
-}
-#movieName {
-  padding-left: 60px;
-}
-.section2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 20px;
-  margin: 10px;
-  gap: 10px;
-}
-.heading1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.heading2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 40px;
-}
-#popularShows {
-  font-size: larger;
-  color: white;
-  padding-left: 30px;
-  font-size: 30px;
-
-  margin-top: 40px;
-   margin-top:30px ; 
-}
-.imgsection2 {
-  height: 150px;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 20px;
-  border: none;
-  gap: 30px;
-}
-.section3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 20px;
-  margin: 10px;
-  gap: 10px;
-}
-
-.heading3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#comingSoon {
-  font-size: larger;
-  color: white;
-  padding-left: 20px;
-  font-size: 30px;
-
-  padding-top: 100px;
-  margin: 40px;
-} */
 * {
   padding: 0;
   margin: 0;
@@ -156,8 +8,28 @@ body {
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(circle, #3a0066, #1a002b);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: white;
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+  display: none; /* hidden by default */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .container {
@@ -169,7 +41,6 @@ body {
   padding-bottom: 60px;
 }
 
-/* ───────── Search Bar ───────── */
 .heading {
   display: flex;
   justify-content: center;
@@ -207,24 +78,24 @@ body {
   color: aliceblue;
 }
 
-/* ───────── Section Headings ───────── */
 .heading1,
-.heading2,
-.heading3 {
+.heading2{
   text-align: center;
   padding-top: 20px;
+
 }
 
 #popularMovies,
-#popularShows,
-#comingSoon {
+#popularShows{
   font-size: 30px;
   margin-bottom: 10px;
+    display: none;
 }
 
-/* ───────── Common Card Style ───────── */
 .img {
   width: 150px;
+  min-width: 150px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -235,29 +106,48 @@ body {
 
 .img img {
   width: 100%;
-  height: auto;
+  max-height: 250px;
+  min-height: 250px;
+  object-fit: cover;
   border-radius: 15px;
 }
-
-/* ───────── Sections ───────── */
-.section1,
-.section2,
-.section3 {
+#Sd {
+  display: none;
+}
+#searchData {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.container2 {
+  display: none;
+}
+.section1,
+.section2{
+  display: flex;
+
+  flex-direction: row;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
   gap: 20px;
   padding: 20px 40px;
 }
 
-/* ───────── Movie Name Text ───────── */
 #movieName {
   text-align: center;
   font-size: 16px;
 }
 
-/* Optional: make sections look a bit spaced */
 .section1,
-.section2,
-.section3 {
+.section2{
   margin-bottom: 20px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
 }
