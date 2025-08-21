@@ -1,9 +1,9 @@
-import { getPopularMovies } from "./API";
+import { getPopularMovies } from "./api";
 import { generateCard } from "./template";
-import { getPopularshows } from "./API";
-import { getSearchMovies } from "./API";
-import { getSearchshows } from "./API";
-import { getDetails } from "./API";
+import { getPopularshows } from "./api";
+import { getSearchMovies } from "./api";
+import { getSearchshows } from "./api";
+import { getDetails } from "./api";
 import { generateCastcard, genreCard } from "./template";
 
 const loading = document.querySelector(".spinner");
